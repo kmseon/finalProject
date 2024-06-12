@@ -367,7 +367,7 @@ $("#update-btn").on("click", function() {
     var cr_nm = $("#cr_nm").val();
     var road_nm_addr = $("#road_nm_addr").val();   
     
-    console.log(keynroad_nm_addrame);
+    console.log(road_nm_addr);
     
     var kdt_cust_info_basc_dto = {		
     		cust_sn : cust_sn,
@@ -379,7 +379,7 @@ $("#update-btn").on("click", function() {
     		home_telno : home_telno,
     		mbl_telno : mbl_telno,
     		cr_nm : cr_nm,
-    		keynroad_nm_addrame : keynroad_nm_addrame
+    		road_nm_addr : road_nm_addr
     };
    
        

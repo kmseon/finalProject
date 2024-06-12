@@ -112,8 +112,7 @@ public class KdtController {
 		String frst_reg_dt = LocalDate.now().toString();
 		
 		kdt_cust_info_basc_dto.setFrst_reg_dt(frst_reg_dt);
-		
-		
+			
 		kdt_cust_info_basc_dto.setTkcg_dept_nm("영업부");
 		
 		System.out.println("insert"+kdt_cust_info_basc_dto.toString());
