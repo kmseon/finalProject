@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.kdt.mapper.kdt_cust_info_basc_mapper">
+
+	<!--main페이지 : Dtos | 전체 검색-->
+	<select id="custList" parameterType="custDto" resultType="custDto">
+		SELECT cust_sn, cust_nm, eml_addr, brdt, 
+			   home_telno, mbl_telno, pridtf_no, 
+			   cr_nm, road_nm_addr, pic_sn_vl, 
+			   tkcg_dept_nm, frst_reg_dt, last_mdfcn_dt, 
+			   frst_rgtr_sn, use_yn
+		FROM kdt_cust_info_basc 
+		WHERE use_yn = 'Y'
+	</select>
+	
+	<!--radio 선택 고객 정보-->
+	<select id="radioCustOne" parameterType="int" resultType="custDto">
+		SELECT cust_sn, cust_nm, eml_addr, brdt, 
+			   home_telno, mbl_telno, pridtf_no, 
+			   cr_nm, road_nm_addr, pic_sn_vl, 
+			   tkcg_dept_nm, frst_reg_dt, last_mdfcn_dt, 
+			   frst_rgtr_sn, use_yn 
+		FROM kdt_cust_info_basc
+		WHERE cust_sn = #{cust_sn}
+	</select>
+	
+	<!--조건 검색 : 이름 검색-->
+	<select id="searchCustOne" parameterType="String" resultType="custDto">
+		SELECT cust_sn, cust_nm, eml_addr, brdt, 
+			   home_telno, mbl_telno, pridtf_no, 
+			   cr_nm, road_nm_addr, pic_sn_vl, 
+			   tkcg_dept_nm, frst_reg_dt, last_mdfcn_dt, 
+			   frst_rgtr_sn, use_yn 
+		FROM kdt_cust_info_basc
+		WHERE cust_nm LIKE CONCAT('%', #{keyword},'%') AND use_yn = 'Y'
+	</select>
+	
+	<!-- 신규 고객 등록 -->
+    <insert id="insert" parameterType="custDto">
+        INSERT INTO kdt_cust_info_basc(last_mdfcn_dt, frst_reg_dt, cust_nm, brdt, eml_addr, home_telno, mbl_telno, cr_nm, road_nm_addr, pridtf_no, tkcg_dept_nm)
+        VALUES (#{last_mdfcn_dt}, #{frst_reg_dt}, #{cust_nm},SUBSTRING(#{pridtf_no},1,6), #{eml_addr}, #{home_telno}, #{mbl_telno}, #{cr_nm}, #{road_nm_addr}, #{pridtf_no},#{ tkcg_dept_nm})
+    </insert>
+   
+   <!-- 특정 고객 정보 수정 -->
+    <update id="update" parameterType="custDto">
+        UPDATE kdt_cust_info_basc
+        SET cust_nm = #{cust_nm}, eml_addr = #{eml_addr}, home_telno = #{home_telno}, mbl_telno = #{mbl_telno},
+        cr_nm = #{cr_nm}, road_nm_addr = #{road_nm_addr},  last_mdfcn_dt = #{last_mdfcn_dt}, pridtf_no = #{pridtf_no}
+        WHERE cust_sn = #{cust_sn}
+    </update>
+	
+	 <!-- 고객 정보 삭제 (사용여부 y->n) -->
+    <update id="delete" parameterType="int">
+        UPDATE kdt_cust_info_basc
+        SET use_yn = 'N'
+        WHERE cust_sn = #{cust_sn}
+    </update>
+</mapper>

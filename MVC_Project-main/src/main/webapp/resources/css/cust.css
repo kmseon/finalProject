@@ -1,0 +1,221 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #DCDCDC;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px;
+    padding: 10px;
+    background-color: #DCDCDC;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.close-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    align-items: stretch; /* Stretch items to equal height */
+    gap: 10px; /* Gap between panels */
+}
+
+.left-panel, .center-panel, .right-panel {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 10px;
+    flex: 1; /* Allow panels to grow and fill available space equally */
+    margin-top: 10px;
+}
+
+.left-panel {
+    flex-grow: 1; /* Set the width ratio to 1 */
+/*     border: 1px solid black; */
+}
+
+.center-panel {
+	flex-grow: 1.5; /* Set the width ratio to 1.5 */
+	text-align: right; /* Align text to the right */
+}
+
+.right-panel {
+    flex-grow: 5; /* Set the width ratio to 2.5 */
+/*     border: 1px solid black; */
+}
+
+.search-section {
+    margin-bottom: 20px;
+}
+
+.search-section label,
+.search-section input {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.right-panel .search-section{
+	height: 100%;
+}
+
+.search-section textarea {
+    height: 80%; /* Fill available height within .search-section */
+    width: 100%;
+}
+
+
+.search-button {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.customer-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.customer-list li {
+    margin-bottom: 5px;
+}
+
+.customer-info, .manager-info{
+	
+}
+
+.center-line{
+	border-top: 1px solid black;
+/* 	구분선 검정: #444444  배경색: #DCDCDC */
+  	margin: 5px 0px;
+}
+
+.customer-info{
+	 margin-bottom: 20px;
+}
+
+.manager-info {
+   	 margin-top: 20px;
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow flex items to wrap to the next line */
+    align-content: flex-end;
+    
+}
+
+.action-button {
+    flex-basis: 23%; /* Adjusted the flex-basis to accommodate consistent spacing */
+    margin-bottom: 5px;
+    margin-right: 2%; /* Add margin to the right */
+    background-color: #007bff; /* Set background color for all action buttons */
+    height: 50px;
+}
+
+.action-button:nth-child(6) { 
+    background-color: pink; 
+}
+
+
+.dialog {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.dialog-button {
+    display: block;
+    margin: 10px auto 0 auto;
+    padding: 5px 10px;
+}
+
+.search-section {
+    margin-bottom: 20px;
+}
+
+.form-group{
+	display: flex;
+	justify-content: center;
+}
+
+.text-box-addr{
+	height: 100px;
+}
+
+.text-box{
+	text-align:center;
+	width: 100%;
+}
+
+.form-group p{
+	width: 150px;
+	text-align: center;
+}
+
+.customer-list{
+	border: 1px solid black;
+	background-color: #ffffff;
+	height: 100%;	
+	
+}
+.text-box{
+	width: 100%;
+}
+
+    .btn-custom {
+        width: 30px; 
+        height: 30px;
+        align-items: center;
+    }
+    
+    #contentSearch {
+    display: flex;
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    background-color: white;
+}
+
+.action-button {
+    flex-basis: 23%; /* Adjusted the flex-basis to accommodate consistent spacing */
+    margin-bottom: 5px;
+    margin-right: 2%; /* Add margin to the right */
+    background-color: #007bff; /* Set background color for all action buttons */
+    height: 40px;
+    font-weight: 900; 
+    color:white;
+    border: 2.3px solid black; 
+}
+
+.search-section textarea {
+    height: 90%; /* Fill available height within .search-section */
+    width: 100%;
+}
